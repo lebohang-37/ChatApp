@@ -64,7 +64,7 @@ public class Login {
         }
 
             if (password.length() >= 8
-                && capitalLetter
+                 && capitalLetter
                 && number
                 && specialCharacter) {
 
