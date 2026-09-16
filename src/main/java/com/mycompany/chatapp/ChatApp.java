@@ -1,0 +1,15 @@
+  /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.chatapp;
+
+/**
+ *
+ * @author Student
+ */
+public class ChatApp {
+
+    public static void main(String[] args) {
+    }
+}
