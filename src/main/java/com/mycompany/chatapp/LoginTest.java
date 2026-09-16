@@ -10,4 +10,32 @@ package com.mycompany.chatapp;
  */
 public class LoginTest {
     
+    @Test
+    public void testCheckUserNameCorrect() {
+
+        Login user = new Login(
+                "Lebohang",
+                "Letsoenyo",
+                "kyl_1",
+                "Ch&6sec@ke99!",
+                "+27838968976"
+        );
+
+        assertEquals(true, user.checkUserName());
+    }
+
+    @Test
+    public void testCheckUserNameIncorrect() {
+
+        Login user = new Login(
+                "Lebohang",
+                "Letsoenyo",
+                "kyle!!!!!!",
+                "Ch&6sec@ke99!",
+                "+27838968976"
+        );
+
+        assertEquals(false, user.checkUserName());
+    }
+    
 }
