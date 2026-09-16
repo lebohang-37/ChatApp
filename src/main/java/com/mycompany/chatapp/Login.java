@@ -28,3 +28,49 @@ public class Login {
         this.password = password;
         this.cellPhoneNumber = cellPhoneNumber;
     } 
+
+ // Check if username is correctly formatted
+    public boolean checkUserName() {
+
+        if (username.contains("_") && username.length() <= 5) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Check if password meets complexity requirements
+    public boolean checkPasswordComplexity() {
+
+        boolean capitalLetter = false;
+        boolean number = false;
+        boolean specialCharacter = false;
+
+        for (int i = 0; i < password.length(); i++) {
+
+            char character = password.charAt(i);
+
+            if (Character.isUpperCase(character)) {
+                capitalLetter = true;
+            }
+
+            if (Character.isDigit(character)) {
+                number = true;
+            }
+            
+            if (!Character.isLetterOrDigit(character)) {
+                specialCharacter = true;
+            }
+        }
+
+            if (password.length() >= 8
+                && capitalLetter
+                && number
+                && specialCharacter) {
+
+            return true;
+
+            } else {
+            return false;
+        }
+    }
