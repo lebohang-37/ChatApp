@@ -4,13 +4,14 @@
  */
 package com.mycompany.chatapp;
 
+import java.util.regex.Pattern;
+
 /**
  *
  * @author Student
  */
-
 public class Login {
-
+    
     // Variables
     private String firstName;
     private String lastName;
@@ -32,11 +33,7 @@ public class Login {
  // Check if username is correctly formatted
     public boolean checkUserName() {
 
-        if (username.contains("_") && username.length() <= 5) {
-            return true;
-        } else {
-            return false;
-        }
+        return username.contains("_") && username.length() <= 5;
     }
 
     // Check if password meets complexity requirements
@@ -131,3 +128,4 @@ public class Login {
         }
     }
 }
+
