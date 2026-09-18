@@ -1,22 +1,20 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package com.mycompany.chatapp;
+package TestChatApp;
 
 import com.mycompany.chatapp.Login;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  *
  * @author Student
  */
-
-
 public class LoginTest {
     
-     @Test
+    @Test
     public void testCheckUserNameCorrect() {
 
         Login user = new Login(
@@ -29,8 +27,8 @@ public class LoginTest {
 
         assertEquals(true, user.checkUserName());
     }
-
-    @Test
+    
+     @Test
     public void testCheckUserNameIncorrect() {
 
         Login user = new Login(
@@ -57,8 +55,8 @@ public class LoginTest {
 
         assertEquals(true, user.checkPasswordComplexity());
     }
-
-    @Test
+    
+     @Test
     public void testPasswordIncorrect() {
 
         Login user = new Login(
@@ -133,4 +131,5 @@ public class LoginTest {
                 user.loginUser("wrong", "wrong")
         );
     }
+    
 }
