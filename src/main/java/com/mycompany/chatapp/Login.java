@@ -127,5 +127,11 @@ public class Login {
             return "Username or password incorrect, please try again.";
         }
     }
+    
+    if (loginSuccessful) {
+    System.out.println("Welcome to QuickChat.");
+   } else {
+    System.out.println("Login failed. Please try again.");
+}
 }
 
