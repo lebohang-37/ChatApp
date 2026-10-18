@@ -72,7 +72,35 @@ public class ChatApp {
                     )
             );
         }
+        boolean running = true;
+
+while (running) {
+    System.out.println("Welcome to QuickChat.");
+    System.out.println("1. Send Messages");
+    System.out.println("2. Show Recently Sent Messages");
+    System.out.println("3. Quit");
+
+    int choice = scanner.nextInt();
+    scanner.nextLine();
+
+    switch (choice) {
+        case 1:
+            // Send messages
+            break;
+
+        case 2:
+            System.out.println("Coming Soon.");
+            break;
+
+        case 3:
+            running = false;
+            System.out.println("Goodbye!");
+            break;
+
+        default:
+            System.out.println("Invalid option. Please try again.");
+    }
 
         input.close();
-    }
+   
 }
