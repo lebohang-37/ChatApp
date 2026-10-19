@@ -1,0 +1,18 @@
+[
+  {
+    "messageID": "6154749088",
+    "messageNumber": 0,
+    "recipient": "+27718693002",
+    "messageText": "Message to store",
+    "messageHash": "61:0:MESSAGESTORE",
+    "action": "Stored"
+  },
+  {
+    "messageID": "9080414335",
+    "messageNumber": 0,
+    "recipient": "+27718693002",
+    "messageText": "Message to store",
+    "messageHash": "90:0:MESSAGESTORE",
+    "action": "Stored"
+  }
+]
