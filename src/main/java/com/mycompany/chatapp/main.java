@@ -1,4 +1,4 @@
-/*
+/* 
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
@@ -71,36 +71,27 @@ public class main {
                             loginPassword
                     )
             );
+            // Start the chat only after successful login.
+            if (loginUsername.equals(username)
+                    && loginPassword.equals(password)) {
+
+                System.out.println("\nLogin successful!");
+
+                ChatApp chatApp = new ChatApp();
+                chatApp.startChat();
+
+            } else {
+                System.out.println(
+                        "Login failed. You cannot access the chat."
+                );
+            }
+
+        } else {
+            System.out.println(
+                    "\nRegistration failed. Please correct your details."
+            );
         }
-        boolean running = true;
-
-while (running) {
-    System.out.println("Welcome to QuickChat.");
-    System.out.println("1. Send Messages");
-    System.out.println("2. Show Recently Sent Messages");
-    System.out.println("3. Quit");
-
-    int choice = scanner.nextInt();
-    scanner.nextLine();
-
-    switch (choice) {
-        case 1:
-            // Send messages
-            break;
-
-        case 2:
-            System.out.println("Coming Soon.");
-            break;
-
-        case 3:
-            running = false;
-            System.out.println("Goodbye!");
-            break;
-
-        default:
-            System.out.println("Invalid option. Please try again.");
-    }
 
         input.close();
-   
+    }
 }
