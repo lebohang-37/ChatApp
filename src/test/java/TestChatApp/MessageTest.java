@@ -5,6 +5,7 @@
 package TestChatApp;
 
 import com.mycompany.chatapp.Message;
+import com.mycompany.chatapp.MessageStorage;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -107,4 +108,24 @@ public class MessageTest {
         assertEquals("Stored", message.SentMessage());
     }
     
+@Test
+public void testMessageCanBeStored() {
+    MessageStorage storage = new MessageStorage();
+
+    Message message = new Message(
+            0, "+27718693002", "Message to store");
+
+    message.setAction("Stored");
+
+    assertTrue(storage.storeMessage(message));
+
+    java.util.List<Message> storedMessages =
+            storage.loadMessages();
+
+    assertFalse(storedMessages.isEmpty());
+
+    assertTrue(storedMessages.stream().anyMatch(
+            saved -> saved.getMessageID().equals(
+                    message.getMessageID())));
+}   
 }
