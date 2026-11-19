@@ -14,5 +14,14 @@
     "messageText": "Message to store",
     "messageHash": "90:0:MESSAGESTORE",
     "action": "Stored"
+  },
+  {
+    "messageID": "2139882720",
+    "messageNumber": 2,
+    "sender": "QuickChat User",
+    "recipient": "+27726221272",
+    "messageText": "are you coming to school",
+    "messageHash": "21:2:ARESCHOOL",
+    "action": "Stored"
   }
 ]

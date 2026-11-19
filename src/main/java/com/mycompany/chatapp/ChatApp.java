@@ -504,4 +504,27 @@ public class ChatApp {
 
         return report.toString();
     }
+    
+    // Methods used to access the collections in unit tests.
+
+    public List<Message> getSentMessages() {
+        return sentMessages;
+    }
+
+    public List<Message> getDisregardedMessages() {
+        return disregardedMessages;
+    }
+
+    public List<Message> getStoredMessages() {
+        return storedMessages;
+    }
+
+    public List<String> getMessageHashes() {
+        return messageHashes;
+    }
+
+    public List<String> getMessageIDs() {
+        return messageIDs;
+    }
+
 }
