@@ -31,7 +31,7 @@ public class ChatApp {
         ChatApp chatApp = new ChatApp();
         chatApp.startChat();
     }
-    
+     
     public void startChat() {
         System.out.println("\nWelcome to QuickChat!");
 
@@ -41,7 +41,7 @@ public class ChatApp {
         for (int i = 0; i < numberOfMessages; i++) {
             System.out.println("\nMessage " + (i + 1));
 
-            System.out.print("Enter recip  ient number: ");
+            System.out.print("Enter recipient number: ");
             String recipient = input.nextLine().trim();
 
             System.out.print("Enter your message: ");

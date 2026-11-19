@@ -10,9 +10,10 @@ import java.util.UUID;
  * @author Student
  */
 public class Message {
-    
+
     private String messageID;
     private int messageNumber;
+    private String sender;
     private String recipient;
     private String messageText;
     private String messageHash;
@@ -24,7 +25,14 @@ public class Message {
 
     public Message(int messageNumber, String recipient,
                    String messageText) {
+        this(messageNumber, "QuickChat User", recipient, messageText);
+    }
+
+    public Message(int messageNumber, String sender,
+                   String recipient, String messageText) {
+
         this.messageNumber = messageNumber;
+        this.sender = sender;
         this.recipient = recipient;
         this.messageText = messageText;
         this.messageID = generateMessageID();
@@ -33,9 +41,10 @@ public class Message {
     }
 
     private String generateMessageID() {
-        // Generate a unique 10-digit message ID.
+
         long id = 1_000_000_000L
                 + (long) (Math.random() * 9_000_000_000L);
+
         return String.valueOf(id);
     }
 
@@ -45,28 +54,34 @@ public class Message {
     }
 
     public boolean checkRecipientCell() {
-        // Require an international number beginning with +.
-        return recipient != null
-                && recipient.matches("\\+[1-9]\\d{9,14}");
+
+        if (recipient == null) {
+            return false;
+        }
+
+        return recipient.matches("\\+[1-9]\\d{9,14}")
+                || recipient.matches("0[6-8]\\d{8}");
     }
 
     public String validateMessageLength() {
-        if (messageText == null) {
+
+        if (messageText == null || messageText.trim().isEmpty()) {
             return "Message cannot be empty.";
         }
 
         if (messageText.length() > 250) {
+
             int excess = messageText.length() - 250;
 
             return "Message exceeds 250 characters by "
-                    + excess
-                    + "; please reduce the size.";
+                    + excess + "; please reduce the size.";
         }
 
         return "Message ready to send.";
     }
 
     public String createMessageHash() {
+
         if (messageID == null || messageText == null
                 || messageText.trim().isEmpty()) {
             return "";
@@ -111,6 +126,14 @@ public class Message {
         this.messageNumber = messageNumber;
     }
 
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
     public String getRecipient() {
         return recipient;
     }
@@ -138,5 +161,4 @@ public class Message {
     public String getAction() {
         return action;
     }
-    
 }
