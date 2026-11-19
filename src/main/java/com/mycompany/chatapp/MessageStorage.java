@@ -21,7 +21,7 @@ import java.util.List;
  * @author Student
  */
 public class MessageStorage {
-    
+
     private final File file = new File("messages.json");
 
     private final Gson gson = new GsonBuilder()
@@ -29,24 +29,25 @@ public class MessageStorage {
             .create();
 
     public List<Message> loadMessages() {
+
         if (!file.exists()) {
             return new ArrayList<>();
         }
 
         try (FileReader reader = new FileReader(file)) {
+
             Type listType = new TypeToken<ArrayList<Message>>() {
             }.getType();
 
-            List<Message> messages = gson.fromJson(
-                    reader, listType);
+            List<Message> messages = gson.fromJson(reader, listType);
 
             return messages == null
                     ? new ArrayList<>()
                     : messages;
 
         } catch (IOException e) {
-            System.out.println(
-                    "Could not read stored messages: "
+
+            System.out.println("Could not read stored messages: "
                     + e.getMessage());
 
             return new ArrayList<>();
@@ -54,19 +55,44 @@ public class MessageStorage {
     }
 
     public boolean storeMessage(Message message) {
+
         List<Message> messages = loadMessages();
         messages.add(message);
 
+        return saveMessages(messages);
+    }
+
+    public boolean saveMessages(List<Message> messages) {
+
         try (FileWriter writer = new FileWriter(file)) {
+
             gson.toJson(messages, writer);
             return true;
 
         } catch (IOException e) {
-            System.out.println(
-                    "Could not store message: "
+
+            System.out.println("Could not save messages: "
                     + e.getMessage());
 
             return false;
         }
-    }  
+    }
+
+    public boolean deleteMessage(String messageHash) {
+
+        List<Message> messages = loadMessages();
+
+        boolean removed = messages.removeIf(message ->
+                message.getMessageHash() != null
+                && message.getMessageHash().equalsIgnoreCase(
+                        messageHash.trim()
+                )
+        );
+
+        if (removed) {
+            return saveMessages(messages);
+        }
+
+        return false;
+    }
 }
